@@ -18,5 +18,15 @@ Template.home.helpers({
   
   latestNews: function() {
     return News.latest();
+  },
+
+  ready: function() {
+    var feedSubscription = Router.current().feedSubscription;
+
+    if(feedSubscription) {
+      return feedSubscription.ready();
+    } else {
+      return true;
+    }
   }
 });
